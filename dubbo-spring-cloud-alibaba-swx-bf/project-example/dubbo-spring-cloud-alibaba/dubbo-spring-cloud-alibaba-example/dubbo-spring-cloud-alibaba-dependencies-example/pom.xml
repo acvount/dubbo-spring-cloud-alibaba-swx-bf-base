@@ -15,22 +15,104 @@
     <packaging>pom</packaging>
 
 
+    <developers>
+        <developer>
+            <id>Acvount</id>
+            <name>温子凡</name>
+            <email>cc0523@gmail.com</email>
+            <url>http://acbcl.cn/blog/me</url>
+            <timezone>GTM+8</timezone>
+        </developer>
+    </developers>
+
+    <modules>
+        <module>../example-service/dubbo-spring-cloud-alibaba-provider-api-example</module>
+        <module>../example-service/dubbo-spring-cloud-alibaba-provider-example</module>
+        <module>../example-service/dubbo-spring-cloud-alibaba-consumer-example</module>
+    </modules>
+
     <properties>
-        <!-- 环境配置 -->
+        <!-- environment -->
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Spring 配置 -->
+        <!-- Spring-->
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+
+        <!-- Spring Cloud Alibaba -->
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
 
-        <!-- 阿里组件 -->
+
+        <!--Ali Nacos-->
         <ali-nacos.version>1.3.2</ali-nacos.version>
+        <dubbo-registry-nacos.version>2.7.7</dubbo-registry-nacos.version>
+        <ali-spring-context.version>1.0.9</ali-spring-context.version>
+
+
+        <!-- Apache Dubbo-->
+        <dubbo.version>2.7.8</dubbo.version>
+        <dubbo-kryo.version>2.7.2</dubbo-kryo.version>
+
+        <!-- Zipkip 链路追踪 -->
+        <brave-dubbo.version>5.6.6</brave-dubbo.version>
+        <zipkin.version>2.2.5.RELEASE</zipkin.version>
+
+
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!-- Nacos Begin -->
+            <!-- Alibaba Nacos 客户端 -->
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${ali-nacos.version}</version>
+            </dependency>
+            <!-- Alibaba Nacos 注册中心 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo-registry-nacos</artifactId>
+                <version>${dubbo-registry-nacos.version}</version>
+            </dependency>
+            <!-- Nacos End -->
+
+            <!-- Dubbo Begin -->
+            <!-- Apache Dubbo -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <!-- Apache Dubbo Spring Boot Stater -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <!-- Apache Dubbo Spring 上下文支持 -->
+            <dependency>
+                <groupId>com.alibaba.spring</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${ali-spring-context.version}</version>
+            </dependency>
+            <!-- Apache Dubbo Spring Boot 制动器 -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-actuator</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <!-- Apache Dubbo 高性能 序列化工具 : Kryo  -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-serialization-kryo</artifactId>
+                <version>${dubbo-kryo.version}</version>
+            </dependency>
+            <!-- Dubbo End -->
+
+            <!-- SpringCloud Begin -->
+            <!-- Spring Cloud Nacos 配置中心 -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
@@ -41,12 +123,24 @@
                 <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
             </dependency>
+            <!-- SpringCloud End -->
+
+            <!-- Zipkin 链路追踪 Begin -->
             <dependency>
-                <groupId>com.alibaba.nacos</groupId>
-                <artifactId>nacos-client</artifactId>
-                <version>${ali-nacos.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>${zipkin.version}</version>
             </dependency>
+            <!-- zipkin支持dubbo -->
+            <dependency>
+                <groupId>io.zipkin.brave</groupId>
+                <artifactId>brave-instrumentation-dubbo-rpc</artifactId>
+                <version>${brave-dubbo.version}</version>
+            </dependency>
+            <!-- Zipkin 链路追踪 End -->
+
         </dependencies>
+
     </dependencyManagement>
 
     <dependencies>

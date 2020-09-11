@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: dev #   1
+
+  application:
+    name: dubbo-example-consumer  #   2
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        #后缀
+        file-extension: yaml  #  3
+        # Name space
+        namespace: d359e765-907a-462d-86e9-4a1df7ed59d2
+        # 组名也要加上啊
+        group: Example-Dubbo-SprinCloudAlibaba
+
+
+# 最后找的是  2-1.3  就是 dubbo-example-consumer-dev.yaml  !!!
+
+

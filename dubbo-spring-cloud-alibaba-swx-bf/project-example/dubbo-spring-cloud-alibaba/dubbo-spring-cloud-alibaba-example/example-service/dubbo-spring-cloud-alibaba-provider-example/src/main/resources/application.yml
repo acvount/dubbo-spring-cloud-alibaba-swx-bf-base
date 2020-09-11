@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: provider-example
+
+  main:
+    allow-bean-definition-overriding: true
+
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+
+  sleuth:
+    sampler:
+      # 收集信息的比率 默认0.1 最大1 耗性能!
+      probability: 0.5
+
+dubbo:
+  application:
+    id: provider-example
+    name: provider-example
+    qosEnable: false
+
+  scan:
+    base-packages: cn.com.tfswx.example.service
+
+  protocol:
+    name: dubbo
+    port: -1
+    serialization: kryo
+
+  registry:
+    address: nacos://127.0.0.1:8848
+
+#  负载均衡 配置  random : 随机  roundrobin : 轮询 leastactive : 最少活跃数 consistenthash : 一致性 Hash
+  provider:
+    loadbalance: roundrobin
+    filter: tracing
+
+  consumer:
+    filter: tracing
+

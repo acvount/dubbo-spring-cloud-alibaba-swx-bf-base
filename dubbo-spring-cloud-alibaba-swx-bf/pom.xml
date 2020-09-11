@@ -12,4 +12,15 @@
     <properties>
         <project.version>1.0.0</project.version>
     </properties>
+
+
+    <developers>
+        <developer>
+            <id>Acvount</id>
+            <name>温子凡</name>
+            <email>cc0523@gmail.com</email>
+            <url>https://acbcl.cn/blog</url>
+            <timezone>GTM+8</timezone>
+        </developer>
+    </developers>
 </project>

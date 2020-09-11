@@ -15,8 +15,20 @@
     <description>Demo SpringCloudAlibaba for Dubbo and SpringBoot</description>
     <packaging>pom</packaging>
 
+    <developers>
+        <developer>
+            <id>Acvount</id>
+            <name>温子凡</name>
+            <email>cc0523@gmail.com</email>
+            <url>https://acbcl.cn/blog</url>
+            <timezone>GTM+8</timezone>
+        </developer>
+    </developers>
+
+
     <modules>
         <module>dubbo-spring-cloud-alibaba-dependencies-example</module>
-        <module>dubbo-spring-cloud-alibaba-provider-example</module>
     </modules>
+
+
 </project>
